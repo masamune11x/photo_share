@@ -10,7 +10,7 @@ Video Demo: <https://youtu.be/KSshwt_le4A>
 * Bootstrap
 * Python
 * SQLite
-* Djanfo
+* Django
 
 ## 各機能の説明
 * ホーム画面の「はじめる」から写真フォルダーを作製するオーナー用のアカウントを作成することができます。
