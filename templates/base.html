@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="description" content="テンプレートのサンプルです。">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <!-- font-awesome -->
+        <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+        <!-- Bootstrap用JavaScriptの読み込み -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+
+        {% block  css%}
+        <!-- CSSを読み込むコード -->
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}">
+        {% endblock %}
+
+        <title>テンプレートのサンプル</title>
+    </head>
+
+    <body>
+        <!-- ヘッダーサンプル1 -->
+        <header id="header">
+            </nav>
+            
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark mt-3 mb-3 sticky-top container-fluid">
+                <!-- ページの横幅が狭まった時のトグルの表示 -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- ロゴ -->
+                <a class="navbar-brand" href="#">写真共有アプリ</a>
+
+                <!-- ヘッダーの各要素 -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav4" >
+                    <ul class="navbar-nav" >                   
+                        <li class="nav-item ">
+                            <a class="nav-link" href="#">写真フォルダー閲覧</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">写真フォルダー作成</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">写真フォルダー一覧</a>
+                        </li>
+                    </ul>
+
+                    <!-- ボタン -->
+                    <div class="text-end">
+                        <a type="button" class="btn btn-primary navbtn" href = "{% url 'sign_up' %}">Sign up</a>
+                        <a type="button" class="btn btn-outline-primary navbtn" href = "{% url 'sign_in' %}">Sign in</a>
+                        <a type="button" class="btn btn-outline-danger navbtn" href = "{% url 'logout' %}">Logout</a>
+                    </div>
+                </div>
+                    
+            </nav>
+        </header>
+
+        
+        {% block  content%}
+        <!-- ここの内容は継承先が記載する -->
+        {% endblock %}
+
+    </body>
+</html>

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+<!-- CSSを読み込むコード -->
+{% block css%}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/platform.css' %}">
+<style>
+    img {
+        height: 100%;
+        width: 225px;
+
+        object-fit: cover;
+
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    i {
+        transform: rotate(-90deg);
+        transition: all 0.8s;
+
+    }
+
+    i:hover {
+        transform: rotate(90deg);
+        transition: all 0.8s;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- ここの内容は継承先が記載する -->
+
+<!--画像を追加させるリンク-->
+<h1><a href="/photo_add_platform/"><i class="fa-solid fa-plus"></i></a></h1>
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for item in picture_list%}
+            <div class="col">
+                <div class="card shadow-sm">
+
+                    <img src="/image/{{ item.images }}" width="100%" height="225" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="/photo_delete_platform/{{ item.id }}"
+                                    class="btn btn-sm btn-outline-secondary">Delete</a>
+                                <a href="/image/{{ item.images }}" download="/image/{{ item.images }}"
+                                    class="btn btn-sm btn-outline-secondary">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+
+
+    {% endblock %}

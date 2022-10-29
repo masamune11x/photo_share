@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+<!-- CSSを読み込むコード -->
+{% block  css%}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/sign_up.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- ここの内容は継承先が記載する -->
+<div class="error">
+    <h1>{{ errormessage }}</h1>
+    <button type="button" class="btn btn-outline-primary ">ホームに戻る</button>
+</div>
+{% endblock %}

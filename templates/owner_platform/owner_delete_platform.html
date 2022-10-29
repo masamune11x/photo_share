@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+<!-- CSSを読み込むコード -->
+{% block  css%}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/owner_platform.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- ここの内容は継承先が記載する -->
+<h2>フォルダ削除プラットフォーム</h2>
+
+<p>ここに削除するフォルダを表示</p>
+
+<!--写真のパスをall_picturesテーブルから取得しpicture_listに代入-->
+
+<!--viewの引数で渡されたpkの画像を表示-->
+<div class="card border-warning mb-3" style="max-width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ platform_path.picture_folder_name }}</h5>
+      <p class="card-text">フォルダ「{{ platform_path.picture_folder_name }}」を削除します。よろしいですか？</p>
+ </div>
+<form method="POST" >{% csrf_token %}
+    <button type="submit"  class="btn btn-outline-danger">フォルダを削除</button>
+</form> 
+{% endblock %}

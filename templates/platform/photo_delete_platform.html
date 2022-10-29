@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+<!-- CSSを読み込むコード -->
+{% block  css%}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/platform.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- ここの内容は継承先が記載する -->
+<h2>写真削除プラットフォーム</h2>
+
+<p>この写真を削除しますか</p>
+
+<!--写真のパスをall_picturesテーブルから取得しpicture_listに代入-->
+
+<!--viewの引数で渡されたpkの画像を表示-->
+<img src="/image/{{ photo_path.images }}" ><!--all_picturesの写真のパスはカラム名imagesで取得!!-->
+<form method="POST" >{% csrf_token %}
+    <button type="submit" name="delete_yes_button" value="yes">Yes</button>
+    <button type="submit" name="delete_no_button" value="no">No</button>
+</form> 
+{% endblock %}

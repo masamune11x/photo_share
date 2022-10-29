@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+<!-- CSSを読み込むコード -->
+{% block css%}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/base.css' %}">
+<!-- platform.cssにはまだ何も書いていない -->
+<link rel="stylesheet" type="text/css" href="{% static 'CSS/owner_platform.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- ここの内容は継承先が記載する -->
+
+<h2>プラットフォーム作成用画面</h2>
+
+
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <p>
+        <label for="name">あいことば</label>
+        <input type="text" name = "name" id = "name">
+        </p>
+        <p>
+        <label for="password">password</label>
+        <input type="text" name="password" >
+        </p>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+
+{% endblock %}
